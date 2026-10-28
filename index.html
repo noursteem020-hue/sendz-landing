@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها</title>
+<meta name="description" content="Sendz منشرة عربية أولاً: وكيل الذكاء الاصطناعي حقك يكتبها ويراجعها ويرسلها من الداشبورد أو عبر MCP، وتدفع على ما بتبعت بس.">
+<link rel="canonical" href="https://noursteem020-hue.github.io/sendz-landing/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:site_name" content="Sendz">
+<meta property="og:title" content="Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها">
+<meta property="og:description" content="اكتب، راجع، وابعت — من الداشبورد أو من وكيلك. حماية توصيل مدمجة، وتدفع على ما بتبعت بس.">
+<meta property="og:url" content="https://noursteem020-hue.github.io/sendz-landing/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها">
+<meta name="twitter:description" content="اكتب، راجع، وابعت — من الداشبورد أو من وكيلك. حماية توصيل مدمجة، وتدفع على ما بتبعت بس.">
+<meta name="theme-color" content="#0A1220">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A1220'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23F0A93C' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F0A93C'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0A1220; --ink-2:#0C1526; --panel:#111B2C; --panel-2:#16223A;
+  --fg:#E9EEF7; --dim:#9CABBF; --faint:#8291A6;
+  --line:rgba(156,171,191,.15); --line-2:rgba(156,171,191,.30);
+  --accent:#F0A93C; --on-accent:#211402; --accent-soft:rgba(240,169,60,.12);
+  --r-card:16px; --r-ctl:10px; --r-chip:999px;
+  --pad:clamp(20px,5vw,40px); --sec:clamp(62px,9vw,124px);
+  --maxw:1140px;
+  --font-display:"Noto Naskh Arabic","SF Arabic","Traditional Arabic","Dubai","Segoe UI",Tahoma,sans-serif;
+  --font-body:"Noto Sans Arabic","SF Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--fg);
+  font-family:var(--font-body);font-size:clamp(16px,1.05vw,17.5px);line-height:1.75;
+  font-weight:400;overflow-x:hidden;text-align:start;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(70% 52% at 88% -6%,rgba(240,169,60,.10),transparent 62%),
+    radial-gradient(56% 44% at 6% 4%,rgba(91,214,196,.05),transparent 70%),
+    repeating-linear-gradient(to bottom,rgba(156,171,191,.035) 0 1px,transparent 1px 84px);
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--accent);text-decoration:none}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;line-height:1.28;letter-spacing:0;text-wrap:balance;overflow-wrap:break-word}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;inset-inline-start:-9999px;top:0;background:var(--accent);color:var(--on-accent);padding:12px 18px;z-index:20;border-end-end-radius:var(--r-ctl)}
+.skip:focus{inset-inline-start:12px;top:12px}
+
+/* ---------- header ---------- */
+.site{position:sticky;top:0;z-index:10;background:rgba(10,18,32,.86);border-block-end:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;min-height:70px}
+.mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.28rem;font-weight:700;color:var(--fg);letter-spacing:.01em}
+.mark .beacon{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:beacon 3.4s ease-in-out infinite;flex:none}
+.nav{display:none;margin-inline-start:auto;gap:26px}
+.nav a{color:var(--dim);font-size:.95rem}
+.nav a:hover{color:var(--fg)}
+.bar .btn{margin-inline-start:auto}
+@media(min-width:820px){.nav{display:flex}.bar .btn{margin-inline-start:0}}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding-inline:22px;border-radius:var(--r-ctl);
+  font-family:var(--font-body);font-size:1rem;font-weight:600;line-height:1;
+  border:1px solid transparent;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{background:#F7B653;box-shadow:0 10px 28px -14px rgba(240,169,60,.75);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-off{background:transparent;color:var(--faint);border-color:var(--line);border-style:dashed;cursor:not-allowed}
+.btn-sm{min-height:42px;padding-inline:16px;font-size:.92rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(46px,7vw,88px) var(--sec)}
+.hero-grid{display:grid;gap:clamp(36px,5vw,56px);align-items:center}
+@media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--faint);font-size:.9rem;margin-block-end:20px}
+.eyebrow::before{content:"";width:38px;height:1px;background:var(--accent)}
+h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
+.lede{margin-block-start:20px;color:var(--dim);font-size:clamp(1rem,1.35vw,1.12rem);max-width:46ch}
+.hero .actions{margin-block-start:32px}
+.hint{margin-block-start:16px;color:var(--faint);font-size:.9rem}
+
+/* ---------- console mockup ---------- */
+.console{
+  position:relative;background:linear-gradient(180deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line-2);border-radius:var(--r-card);overflow:hidden;
+  box-shadow:0 40px 70px -46px rgba(0,0,0,.95);
+}
+.console-top{display:flex;align-items:center;gap:12px;padding:14px 18px;border-block-end:1px solid var(--line)}
+.console-top .title{font-family:var(--font-display);font-weight:600;font-size:1rem}
+.pill{margin-inline-start:auto;display:inline-flex;align-items:center;gap:7px;font-size:.8rem;color:var(--accent);border:1px solid rgba(240,169,60,.38);background:var(--accent-soft);border-radius:var(--r-chip);padding:4px 12px}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:beacon 2.6s ease-in-out infinite}
+.log{padding:20px 18px 6px;display:grid;gap:14px}
+.line{display:flex;align-items:baseline;gap:10px;font-size:.92rem;color:var(--dim)}
+.line b{font-weight:600;color:var(--fg)}
+.line .sq{width:6px;height:6px;border-radius:1px;background:var(--line-2);flex:none;transform:translateY(-2px)}
+.line.done .sq{background:var(--accent)}
+.line.done b{color:var(--accent)}
+.meter{display:flex;align-items:flex-end;gap:5px;height:46px;padding-inline:18px}
+.meter i{flex:1 1 0;max-width:9px;background:rgba(156,171,191,.16);border-radius:2px 2px 0 0}
+.meter i:nth-child(3n){background:rgba(240,169,60,.24)}
+.meter i:nth-last-child(-n+3){background:var(--accent);opacity:.9}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:16px 18px 20px}
+.chip{border:1px solid var(--line);background:rgba(156,171,191,.05);border-radius:var(--r-chip);padding:7px 14px;font-size:.84rem;color:var(--dim)}
+.chip b{color:var(--fg);font-weight:600;font-family:var(--font-display)}
+
+/* ---------- sections ---------- */
+.section{padding-block:var(--sec);border-block-start:1px solid var(--line)}
+.head{max-width:52ch;margin-block-end:clamp(30px,4vw,48px)}
+.head h2{font-size:clamp(1.6rem,3.4vw,2.45rem)}
+.head p{margin-block-start:14px;color:var(--dim)}
+.num{display:inline-block;font-family:var(--font-display);color:var(--accent);font-size:.9rem;margin-block-end:12px;border-block-end:1px solid rgba(240,169,60,.4);padding-block-end:4px}
+
+/* features: hairline grid, no cards, no shadows */
+.features{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+@media(min-width:640px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.features{grid-template-columns:repeat(4,1fr)}}
+.feature{background:var(--ink);padding:clamp(22px,3vw,30px);display:grid;gap:12px;align-content:start;transition:background .22s ease}
+.feature:hover{background:var(--ink-2)}
+.feature .ico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;border:1px solid var(--line-2);color:var(--accent)}
+.feature .ico svg{width:19px;height:19px}
+.feature h3{font-size:1.08rem}
+.feature p{color:var(--dim);font-size:.94rem;line-height:1.8}
+
+/* steps: real sequence, numbered */
+.steps{display:grid;gap:clamp(22px,3vw,34px)}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding-inline-start:22px;border-inline-start:1px solid var(--line);position:relative}
+.step::before{content:"";position:absolute;inset-inline-start:-5px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.step .k{font-family:var(--font-display);font-size:1.6rem;color:var(--accent);line-height:1}
+.step h3{font-size:1.1rem;margin-block:10px 8px}
+.step p{color:var(--dim);font-size:.94rem}
+
+/* final cta */
+.final{padding-block:var(--sec);border-block-start:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(240,169,60,.05))}
+.final h2{font-size:clamp(1.7rem,3.8vw,2.6rem);max-width:34ch}
+.final p{margin-block:16px 30px;color:var(--dim);max-width:44ch}
+
+/* footer */
+.foot{border-block-start:1px solid var(--line);padding-block:34px;color:var(--faint);font-size:.88rem}
+.foot .row{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.foot a{color:var(--dim);border-block-end:1px solid var(--line-2);padding-block-end:1px}
+.foot a:hover{color:var(--accent);border-color:var(--accent)}
+.foot .sep{margin-inline-start:auto}
+
+/* ---------- motion: one orchestrated entrance only ---------- */
+.rise{animation:rise .82s cubic-bezier(.16,.84,.28,1) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes beacon{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">تخطّي إلى المحتوى</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="mark" href="#main"><span class="beacon" aria-hidden="true"></span>Sendz</a>
+    <nav class="nav" aria-label="أقسام الصفحة">
+      <a href="#features">المزايا</a>
+      <a href="#how">كيف بتشتغل</a>
+      <a href="#join">سجّل اهتمامك</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="mailto:noursteem020@gmail.com?subject=%D8%A7%D9%87%D8%AA%D9%85%D8%A7%D9%85%20%D8%A8%D9%80%20Sendz">سجّل اهتمامك</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow rise" style="--d:.04s">منشرة عربية أولاً، وكيلك هو المحرر</p>
+        <h1 class="rise" style="--d:.10s">المنشرة اللي وكيل الذكاء الاصطناعي بيديرها</h1>
+        <p class="lede rise" style="--d:.16s">Sendz تخلي وكيلك يكتب العدد ويراجعه ويجهّزه للإرسال، وأنت توافق بضغطة. من الداشبورد أو من وكيلك مباشرة عبر MCP.</p>
+        <div class="actions rise" style="--d:.22s">
+          <a class="btn btn-primary" href="mailto:noursteem020@gmail.com?subject=%D8%A7%D9%87%D8%AA%D9%85%D8%A7%D9%85%20%D8%A8%D9%80%20Sendz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            سجّل اهتمامك
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/noursteem020-hue/sendz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            شوف الكود
+          </a>
+          <!-- YOUTUBE_URL -->
+          <button class="btn btn-off" type="button" disabled aria-disabled="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="m11 10 4 2-4 2z"/></svg>
+            قناتنا قريباً
+          </button>
+        </div>
+        <p class="hint rise" style="--d:.28s">يردّ عليك إيميل فيه تفاصيل التجربة المبكرة — من غير تسجيل بيانات ولا تتبّع.</p>
+      </div>
+
+      <div class="console rise" style="--d:.30s" role="img" aria-label="لوحة إرسال Sendz: الوكيل متصل، العدد جاهز ومراجع، والإرسال تم. ٧٤ أداة MCP، ١٦ عملية محمية، مؤتمتة بالكامل.">
+        <div class="console-top">
+          <span class="title">لوحة الإرسال</span>
+          <span class="pill"><span class="dot" aria-hidden="true"></span>الوكيل متصل</span>
+        </div>
+        <div class="log">
+          <p class="line"><span class="sq" aria-hidden="true"></span><b>الوكيل:</b> جهّز عدد هذا الأسبوع عن MCP</p>
+          <p class="line"><span class="sq" aria-hidden="true"></span><b>المراجعة:</b> ٣ فقرات، رابط واحد، بلا مبالغة</p>
+          <p class="line done"><span class="sq" aria-hidden="true"></span><b>الإرسال:</b> تم إلى ١٢٤٠ مشترك</p>
+        </div>
+        <div class="meter" aria-hidden="true"><i style="height:22%"></i><i style="height:46%"></i><i style="height:34%"></i><i style="height:68%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:96%"></i><i style="height:74%"></i><i style="height:100%"></i></div>
+        <div class="chips">
+          <span class="chip"><b>٧٤</b> أداة MCP</span>
+          <span class="chip"><b>١٦</b> عملية محمية</span>
+          <span class="chip">مؤتمتة بالكامل</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="head">
+        <span class="num">المزايا</span>
+        <h2>أربع أشياء تخلّي الإرسال أسهل من كتابته</h2>
+        <p>بنية Sendz مبنية على MailCheap مفتوحة المصدر، مع طبقة وكيل فوقها: كل شيء يتحكم فيه الوكيل يمرّ من نفس النظام حق الداشبورد.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m8 10 2.5 2.5L8 15"/><path d="M13 15h4"/></svg></span>
+          <h3>أرسل من الداشبورد أو من وكيلك (MCP)</h3>
+          <p>نفس الصلاحيات ونفس السجل، سواء ضغطت أنت أو كتب الوكيل الأمر.</p>
+        </article>
+        <article class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18V9"/><path d="M9 18V5"/><path d="M14 18v-6"/><path d="M19 18v-9"/></svg></span>
+          <h3>تدفع على ما بتبعت بس</h3>
+          <p>ما في اشتراك على عدد المشتركين. الحساب على الإيميلات اللي خرجت فعلاً.</p>
+        </article>
+        <article class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
+          <h3>حماية توصيل مدمجة</h3>
+          <p>تحقّق النطاق، تنظيف القائمة، وإيقاف تلقائي قبل ما ترتد الإيميلات أو تتأثر السمعة.</p>
+        </article>
+        <article class="feature">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17"/><path d="M3.5 15h17"/><path d="M12 3c-3 3.4-3 14.6 0 18"/><path d="M12 3c3 3.4 3 14.6 0 18"/></svg></span>
+          <h3>عربي أولاً</h3>
+          <p>واجهة وقوالب تتكتب من اليمين، وأرقام وصياغة عربية مش مقلوبة ولا ملزّقة.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="head">
+        <span class="num">كيف بتشتغل</span>
+        <h2>ثلاث خطوات من وكيلك إلى صندوق المشترك</h2>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="k">١</span>
+          <h3>اربط وكيلك</h3>
+          <p>مفتاح واحد من الداشبورد، ووكيلك يوصّل على Sendz عبر MCP ويشوف الأدوات المتاحة.</p>
+        </li>
+        <li class="step">
+          <span class="k">٢</span>
+          <h3>اكتب وراجع</h3>
+          <p>الوكيل يجهّز المسوّدة، وأنت تقرّها أو تعدّلها قبل أي إرسال.</p>
+        </li>
+        <li class="step">
+          <span class="k">٣</span>
+          <h3>أرسل بثقة</h3>
+          <p>التوصيل محمي، والعمليات الحسّاسة مفصولة عن اللي يقدر الوكيل ينفّذها.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="final" id="join">
+    <div class="wrap">
+      <h2>جاهز تخلّي وكيلك يدير منشرتك؟</h2>
+      <p>سجّل اهتمامك وأرسل لك تفاصيل التجربة المبكرة على إيميلك، أو افتح الكود وشوف البنية بنفسك.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:noursteem020@gmail.com?subject=%D8%A7%D9%87%D8%AA%D9%85%D8%A7%D9%85%20%D8%A8%D9%80%20Sendz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          سجّل اهتمامك
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/noursteem020-hue/sendz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          شوف الكود
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap row">
+    <span>مبنية على <a href="https://github.com/marclou/mailcheap">MailCheap</a> by Marc Lou (AGPL-3.0)</span>
+    <span><a href="https://github.com/noursteem020-hue/sendz">مستودع Sendz</a></span>
+    <span class="sep">© 2026 Sendz</span>
+  </div>
+</footer>
+</body>
+</html>
