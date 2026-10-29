@@ -3,29 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها</title>
-<meta name="description" content="Sendz منشرة عربية أولاً: وكيل الذكاء الاصطناعي حقك يكتبها ويراجعها ويرسلها من الداشبورد أو عبر MCP، وتدفع على ما بتبعت بس.">
+<title>Sendz — النشرة اللي وكيل الذكاء الاصطناعي بيديرها</title>
+<meta name="description" content="Sendz نشرة عربية أولاً: وكيل الذكاء الاصطناعي حقك يكتبها ويراجعها ويرسلها من الداشبورد أو عبر MCP، وتدفع على ما بتبعت بس.">
 <link rel="canonical" href="https://noursteem020-hue.github.io/sendz-landing/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ar_AR">
 <meta property="og:site_name" content="Sendz">
-<meta property="og:title" content="Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها">
+<meta property="og:title" content="Sendz — النشرة اللي وكيل الذكاء الاصطناعي بيديرها">
 <meta property="og:description" content="اكتب، راجع، وابعت — من الداشبورد أو من وكيلك. حماية توصيل مدمجة، وتدفع على ما بتبعت بس.">
 <meta property="og:url" content="https://noursteem020-hue.github.io/sendz-landing/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sendz — المنشرة اللي وكيل الذكاء الاصطناعي بيديرها">
+<meta name="twitter:title" content="Sendz — النشرة اللي وكيل الذكاء الاصطناعي بيديرها">
 <meta name="twitter:description" content="اكتب، راجع، وابعت — من الداشبورد أو من وكيلك. حماية توصيل مدمجة، وتدفع على ما بتبعت بس.">
-<meta name="theme-color" content="#0A1220">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A1220'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23F0A93C' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F0A93C'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#070C15">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070C15'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23F0A93C' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F0A93C'/%3E%3C/svg%3E">
 <style>
 :root{
-  --ink:#0A1220; --ink-2:#0C1526; --panel:#111B2C; --panel-2:#16223A;
-  --fg:#E9EEF7; --dim:#9CABBF; --faint:#8291A6;
-  --line:rgba(156,171,191,.15); --line-2:rgba(156,171,191,.30);
-  --accent:#F0A93C; --on-accent:#211402; --accent-soft:rgba(240,169,60,.12);
-  --r-card:16px; --r-ctl:10px; --r-chip:999px;
-  --pad:clamp(20px,5vw,40px); --sec:clamp(62px,9vw,124px);
-  --maxw:1140px;
+  --ink:#070C15; --ink-2:#0B1220; --panel:#0F1828; --panel-2:#151F33;
+  --fg:#EDF1F8; --dim:#9FADBF; --faint:#8493A6;
+  --line:rgba(159,173,191,.14); --line-2:rgba(159,173,191,.28);
+  --accent:#F0A93C; --accent-2:#FFC873; --on-accent:#1B1200; --accent-soft:rgba(240,169,60,.12);
+  --r-card:18px; --r-ctl:12px; --r-chip:999px;
+  --pad:clamp(20px,5vw,40px);
+  /* ONE rhythm token: bottom+top of two sections = the whole dead zone (<=96px) */
+  --rhythm:clamp(30px,3.6vw,48px);
+  --overlap:clamp(44px,7vw,96px);
+  --maxw:1180px;
   --font-display:"Noto Naskh Arabic","SF Arabic","Traditional Arabic","Dubai","Segoe UI",Tahoma,sans-serif;
   --font-body:"Noto Sans Arabic","SF Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
 }
@@ -38,12 +41,13 @@ body{
   font-family:var(--font-body);font-size:clamp(16px,1.05vw,17.5px);line-height:1.75;
   font-weight:400;overflow-x:hidden;text-align:start;
 }
+/* the single background layer: a faint dot-grid, masked to fade out */
 body::before{
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(70% 52% at 88% -6%,rgba(240,169,60,.10),transparent 62%),
-    radial-gradient(56% 44% at 6% 4%,rgba(91,214,196,.05),transparent 70%),
-    repeating-linear-gradient(to bottom,rgba(156,171,191,.035) 0 1px,transparent 1px 84px);
+  background-image:radial-gradient(rgba(159,173,191,.17) .9px,transparent 1px);
+  background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(130% 90% at 50% -10%,#000 26%,transparent 76%);
+  mask-image:radial-gradient(130% 90% at 50% -10%,#000 26%,transparent 76%);
 }
 img,svg{display:block;max-width:100%}
 a{color:var(--accent);text-decoration:none}
@@ -59,96 +63,135 @@ p{margin:0}
 .skip:focus{inset-inline-start:12px;top:12px}
 
 /* ---------- header ---------- */
-.site{position:sticky;top:0;z-index:10;background:rgba(10,18,32,.86);border-block-end:1px solid var(--line)}
+.site{position:sticky;top:0;z-index:10;background:rgba(7,12,21,.88);border-block-end:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:16px;min-height:70px}
-.mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.28rem;font-weight:700;color:var(--fg);letter-spacing:.01em}
+.mark{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.28rem;font-weight:700;color:var(--fg)}
 .mark .beacon{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);animation:beacon 3.4s ease-in-out infinite;flex:none}
-.nav{display:none;margin-inline-start:auto;gap:26px}
-.nav a{color:var(--dim);font-size:.95rem}
+.nav{display:none;margin-inline-start:auto;gap:28px}
+.nav a{position:relative;color:var(--dim);font-size:.95rem;padding-block:6px}
+.nav a::after{
+  content:"";position:absolute;inset-inline-start:0;inset-block-end:0;
+  display:block;inline-size:100%;block-size:2px;background:var(--accent);
+  transform:scaleX(0);transform-origin:100% 50%;transition:transform .26s cubic-bezier(.16,.84,.28,1);
+}
 .nav a:hover{color:var(--fg)}
+.nav a:hover::after,.nav a:focus-visible::after{transform:scaleX(1)}
 .bar .btn{margin-inline-start:auto}
 @media(min-width:820px){.nav{display:flex}.bar .btn{margin-inline-start:0}}
 
 /* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
-  min-height:50px;padding-inline:22px;border-radius:var(--r-ctl);
+  min-height:52px;padding-inline:24px;border-radius:var(--r-ctl);
   font-family:var(--font-body);font-size:1rem;font-weight:600;line-height:1;
-  border:1px solid transparent;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease;
+  border:1px solid transparent;cursor:pointer;
+  transition:background .18s ease,border-color .18s ease,color .18s ease,transform .14s ease,opacity .14s ease;
 }
 .btn svg{width:18px;height:18px;flex:none}
 .btn-primary{background:var(--accent);color:var(--on-accent)}
-.btn-primary:hover{background:#F7B653;box-shadow:0 10px 28px -14px rgba(240,169,60,.75);transform:translateY(-1px)}
+.btn-primary:hover{background:var(--accent-2)}
 .btn-ghost{background:transparent;color:var(--fg);border-color:var(--line-2)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 .btn-off{background:transparent;color:var(--faint);border-color:var(--line);border-style:dashed;cursor:not-allowed}
 .btn-sm{min-height:42px;padding-inline:16px;font-size:.92rem}
+.btn:active{transform:translateY(1px) scale(.99);opacity:.9}
+.btn-off:active{transform:none;opacity:1}
 .actions{display:flex;flex-wrap:wrap;gap:12px}
 
-/* ---------- hero ---------- */
-.hero{padding-block:clamp(46px,7vw,88px) var(--sec)}
-.hero-grid{display:grid;gap:clamp(36px,5vw,56px);align-items:center}
-@media(min-width:980px){.hero-grid{grid-template-columns:1.05fr .95fr}}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--faint);font-size:.9rem;margin-block-end:20px}
-.eyebrow::before{content:"";width:38px;height:1px;background:var(--accent)}
-h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
-.lede{margin-block-start:20px;color:var(--dim);font-size:clamp(1rem,1.35vw,1.12rem);max-width:46ch}
-.hero .actions{margin-block-start:32px}
-.hint{margin-block-start:16px;color:var(--faint);font-size:.9rem}
+/* ---------- hero: editorial poster, asymmetric ---------- */
+.hero{position:relative;z-index:2;padding-block:clamp(38px,6vw,74px) var(--rhythm)}
+.hero-grid{display:grid;gap:clamp(34px,5vw,58px);align-items:end}
+@media(min-width:980px){
+  .hero-grid{grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr)}
+  .hero-copy{padding-block-start:clamp(0px,2vw,26px);border-inline-start:1px solid var(--line);padding-inline-start:clamp(18px,2.4vw,34px)}
+}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--faint);font-size:.9rem;margin-block-end:22px}
+.eyebrow::before{content:"";width:44px;height:1px;background:var(--accent)}
+h1{font-size:clamp(3rem,8vw,6.5rem);line-height:1.08;font-weight:700}
+.rule{block-size:1px;background:var(--line-2);margin-block:clamp(22px,3vw,34px) 0;max-inline-size:210px}
+.lede{margin-block-start:22px;color:var(--dim);font-size:clamp(1rem,1.35vw,1.14rem);max-width:44ch}
+.hero .actions{margin-block-start:34px}
+.hint{margin-block-start:18px;color:var(--faint);font-size:.9rem}
 
-/* ---------- console mockup ---------- */
+/* ---------- console mockup: breaks the hero edge ---------- */
 .console{
   position:relative;background:linear-gradient(180deg,var(--panel-2),var(--panel));
   border:1px solid var(--line-2);border-radius:var(--r-card);overflow:hidden;
-  box-shadow:0 40px 70px -46px rgba(0,0,0,.95);
+  box-shadow:0 44px 74px -46px rgba(0,0,0,.95);
 }
+/* negative end margin = --overlap + the hero's own bottom padding, so the card
+   really clears the hero edge by --overlap and lands over #features' rule */
+@media(min-width:980px){.console{margin-block-end:calc(-1 * (var(--overlap) + var(--rhythm)))}}
 .console-top{display:flex;align-items:center;gap:12px;padding:14px 18px;border-block-end:1px solid var(--line)}
 .console-top .title{font-family:var(--font-display);font-weight:600;font-size:1rem}
 .pill{margin-inline-start:auto;display:inline-flex;align-items:center;gap:7px;font-size:.8rem;color:var(--accent);border:1px solid rgba(240,169,60,.38);background:var(--accent-soft);border-radius:var(--r-chip);padding:4px 12px}
 .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:beacon 2.6s ease-in-out infinite}
 .log{padding:20px 18px 6px;display:grid;gap:14px}
-.line{display:flex;align-items:baseline;gap:10px;font-size:.92rem;color:var(--dim);min-width:0}
-.line b{font-weight:600;color:var(--fg)}
+.line{display:flex;align-items:baseline;gap:10px;font-size:.92rem;color:var(--dim);min-width:0;min-block-size:1.9em}
+.line b{font-weight:600;color:var(--fg);flex:none}
 .line .sq{width:6px;height:6px;border-radius:1px;background:var(--line-2);flex:none;transform:translateY(-2px)}
 .line.done .sq{background:var(--accent)}
 .line.done b{color:var(--accent)}
-.meter{display:flex;align-items:flex-end;gap:5px;height:46px;padding-inline:18px}
-.meter i{flex:1 1 0;max-width:9px;background:rgba(156,171,191,.16);border-radius:2px 2px 0 0}
-.meter i:nth-child(3n){background:rgba(240,169,60,.24)}
+.caret{display:inline-block;inline-size:7px;block-size:1.05em;background:var(--accent);flex:none;transform:translateY(2px);animation:blink 1s steps(1,end) infinite}
+.caret[hidden]{display:none}
+.meter{display:flex;align-items:flex-end;gap:5px;block-size:48px;padding-inline:18px}
+.meter i{flex:1 1 0;max-width:9px;block-size:100%;border-radius:2px 2px 0 0;background:rgba(159,173,191,.16);transform:scaleY(var(--h,.3));transform-origin:bottom;animation:grow .8s cubic-bezier(.16,.84,.28,1) both}
+.meter i:nth-child(3n){background:rgba(240,169,60,.26)}
 .meter i:nth-last-child(-n+3){background:var(--accent);opacity:.9}
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:16px 18px 20px}
-.chip{border:1px solid var(--line);background:rgba(156,171,191,.05);border-radius:var(--r-chip);padding:7px 14px;font-size:.84rem;color:var(--dim)}
+.chip{border:1px solid var(--line);background:rgba(159,173,191,.05);border-radius:var(--r-chip);padding:7px 14px;font-size:.84rem;color:var(--dim)}
 .chip b{color:var(--fg);font-weight:600;font-family:var(--font-display);font-variant-numeric:tabular-nums}
 
-/* ---------- sections ---------- */
-.section{padding-block:var(--sec);border-block-start:1px solid var(--line)}
-.head{max-width:52ch;margin-block-end:clamp(30px,4vw,48px)}
+/* ---------- sections: one rhythm, one start grid line ---------- */
+.section{position:relative;z-index:1;padding-block:var(--rhythm);border-block-start:1px solid var(--line)}
+/* the console card overhangs into #features: give it room back */
+@media(min-width:980px){.section.after-hero{padding-block-start:calc(var(--rhythm) + var(--overlap))}}
+.head{max-width:56ch;margin-block-end:clamp(26px,3.2vw,42px)}
 .head h2{font-size:clamp(1.6rem,3.4vw,2.45rem)}
 .head p{margin-block-start:14px;color:var(--dim)}
 .num{display:inline-block;font-family:var(--font-display);color:var(--accent);font-size:.9rem;margin-block-end:12px;border-block-end:1px solid rgba(240,169,60,.4);padding-block-end:4px}
 
-/* features: hairline grid, no cards, no shadows */
-.features{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+/* features: asymmetric 7/5 + 5/7 cards, amber edge on hover */
+.features{display:grid;gap:14px}
 @media(min-width:640px){.features{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1040px){.features{grid-template-columns:repeat(4,1fr)}}
-.feature{background:var(--ink);padding:clamp(22px,3vw,30px);display:grid;gap:12px;align-content:start;transition:background .22s ease}
-.feature:hover{background:var(--ink-2)}
+@media(min-width:940px){
+  .features{grid-template-columns:repeat(12,1fr);gap:16px}
+  .feature:nth-child(1),.feature:nth-child(4){grid-column:span 7}
+  .feature:nth-child(2),.feature:nth-child(3){grid-column:span 5}
+}
+.feature{
+  position:relative;background:linear-gradient(180deg,var(--panel),var(--ink-2));
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  padding:clamp(22px,2.6vw,30px);display:grid;gap:12px;align-content:start;
+  transition:transform .24s cubic-bezier(.16,.84,.28,1),border-color .24s ease;
+}
+.feature::before{
+  content:"";position:absolute;inset-inline:0;inset-block-start:0;block-size:2px;
+  background:var(--accent);transform:scaleX(0);transform-origin:100% 50%;
+  transition:transform .32s cubic-bezier(.16,.84,.28,1);
+}
+@media(hover:hover){
+  .feature:hover{transform:translateY(-4px);border-color:rgba(240,169,60,.34)}
+  .feature:hover::before{transform:scaleX(1)}
+}
+.feature:active{transform:translateY(-1px)}
 .feature .ico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;border:1px solid var(--line-2);color:var(--accent)}
 .feature .ico svg{width:19px;height:19px}
 .feature h3{font-size:1.08rem}
 .feature p{color:var(--dim);font-size:.94rem;line-height:1.8}
 
-/* steps: real sequence, numbered */
+/* steps: a real sequence, so it keeps its numbers */
 .steps{display:grid;gap:clamp(22px,3vw,34px)}
 @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
-.step{padding-inline-start:22px;border-inline-start:1px solid var(--line);position:relative}
+.step{padding-inline-start:22px;border-inline-start:1px solid var(--line);position:relative;transition:transform .24s ease}
 .step::before{content:"";position:absolute;inset-inline-start:-5px;top:10px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+@media(hover:hover){.step:hover{transform:translateY(-3px)}}
 .step .k{font-family:var(--font-display);font-size:1.6rem;color:var(--accent);line-height:1}
 .step h3{font-size:1.1rem;margin-block:10px 8px}
 .step p{color:var(--dim);font-size:.94rem}
 
 /* final cta */
-.final{padding-block:var(--sec);border-block-start:1px solid var(--line);background:linear-gradient(180deg,transparent,rgba(240,169,60,.05))}
+.final{border-block-start:1px solid var(--line);background:var(--ink-2)}
 .final h2{font-size:clamp(1.7rem,3.8vw,2.6rem);max-width:34ch}
 .final p{margin-block:16px 30px;color:var(--dim);max-width:44ch}
 
@@ -159,10 +202,12 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
 .foot a:hover{color:var(--accent);border-color:var(--accent)}
 .foot .sep{margin-inline-start:auto}
 
-/* ---------- motion: one orchestrated entrance only ---------- */
+/* ---------- motion: one orchestrated entrance + the console sequence ---------- */
 .rise{animation:rise .82s cubic-bezier(.16,.84,.28,1) both;animation-delay:var(--d,0s)}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes beacon{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(var(--h,.3))}}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -188,10 +233,11 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
 
   <section class="hero">
     <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow rise" style="--d:.04s">منشرة عربية أولاً، وكيلك هو المحرر</p>
-        <h1 class="rise" style="--d:.10s">المنشرة اللي وكيل الذكاء الاصطناعي بيديرها</h1>
-        <p class="lede rise" style="--d:.16s">Sendz تخلي وكيلك يكتب العدد ويراجعه ويجهّزه للإرسال، وأنت توافق بضغطة. من الداشبورد أو من وكيلك مباشرة عبر MCP.</p>
+      <div class="hero-copy">
+        <p class="eyebrow rise" style="--d:.04s">نشرة عربية أولاً، وكيلك هو المحرر</p>
+        <h1 class="rise" style="--d:.10s">النشرة اللي وكيل الذكاء الاصطناعي بيديرها</h1>
+        <div class="rule rise" aria-hidden="true" style="--d:.14s"></div>
+        <p class="lede rise" style="--d:.16s">Sendz تخلي وكيلك يكتب العدد ويراجعه ويجهّزه للإرسال، وأنت توافق بضغطة. من الداشبورد أو من وكيلك مباشرة عبر <span translate="no">MCP</span>.</p>
         <div class="actions rise" style="--d:.22s">
           <a class="btn btn-primary" href="mailto:noursteem020@gmail.com?subject=%D8%A7%D9%87%D8%AA%D9%85%D8%A7%D9%85%20%D8%A8%D9%80%20Sendz">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
@@ -210,17 +256,17 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
         <p class="hint rise" style="--d:.28s">يردّ عليك إيميل فيه تفاصيل التجربة المبكرة — من غير تسجيل بيانات ولا تتبّع.</p>
       </div>
 
-      <div class="console rise" style="--d:.30s" role="img" aria-label="لوحة إرسال Sendz: الوكيل متصل، العدد جاهز ومراجع، والإرسال تم. ٧٤ أداة MCP، ١٦ عملية محمية، مؤتمتة بالكامل.">
+      <div class="console rise" style="--d:.30s" data-console role="img" aria-label="لوحة إرسال Sendz: الوكيل متصل، العدد جاهز ومراجع، والإرسال تم. ٧٤ أداة MCP، ١٦ عملية محمية، مؤتمتة بالكامل.">
         <div class="console-top">
           <span class="title">لوحة الإرسال</span>
           <span class="pill"><span class="dot" aria-hidden="true"></span>الوكيل متصل</span>
         </div>
         <div class="log">
-          <p class="line"><span class="sq" aria-hidden="true"></span><b>الوكيل:</b> جهّز عدد هذا الأسبوع عن <span translate="no">MCP</span></p>
-          <p class="line"><span class="sq" aria-hidden="true"></span><b>المراجعة:</b> ٣ فقرات، رابط واحد، بلا مبالغة</p>
-          <p class="line done"><span class="sq" aria-hidden="true"></span><b>الإرسال:</b> تم إلى ١٢٤٠ مشترك</p>
+          <p class="line"><span class="sq" aria-hidden="true"></span><b>الوكيل:</b> <span data-type>جهّز عدد هذا الأسبوع عن <span translate="no">MCP</span></span><i class="caret" hidden aria-hidden="true"></i></p>
+          <p class="line"><span class="sq" aria-hidden="true"></span><b>المراجعة:</b> <span data-type>٣ فقرات، رابط واحد، بلا مبالغة</span><i class="caret" hidden aria-hidden="true"></i></p>
+          <p class="line"><span class="sq" aria-hidden="true"></span><b>الإرسال:</b> <span data-type>تم إلى ١٢٤٠ مشترك</span><i class="caret" hidden aria-hidden="true"></i></p>
         </div>
-        <div class="meter" aria-hidden="true"><i style="height:22%"></i><i style="height:46%"></i><i style="height:34%"></i><i style="height:68%"></i><i style="height:52%"></i><i style="height:80%"></i><i style="height:62%"></i><i style="height:96%"></i><i style="height:74%"></i><i style="height:100%"></i></div>
+        <div class="meter" aria-hidden="true"><i style="--h:.22"></i><i style="--h:.46"></i><i style="--h:.34"></i><i style="--h:.68"></i><i style="--h:.52"></i><i style="--h:.80"></i><i style="--h:.62"></i><i style="--h:.96"></i><i style="--h:.74"></i><i style="--h:1"></i></div>
         <div class="chips">
           <span class="chip"><b>٧٤</b>&nbsp;أداة <span translate="no">MCP</span></span>
           <span class="chip"><b>١٦</b>&nbsp;عملية محمية</span>
@@ -230,7 +276,7 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
     </div>
   </section>
 
-  <section class="section" id="features">
+  <section class="section after-hero" id="features">
     <div class="wrap">
       <div class="head">
         <span class="num">المزايا</span>
@@ -288,9 +334,9 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
     </div>
   </section>
 
-  <section class="final" id="join">
+  <section class="section final" id="join">
     <div class="wrap">
-      <h2>جاهز تخلّي وكيلك يدير منشرتك؟</h2>
+      <h2>جاهز تخلّي وكيلك يدير نشرتك؟</h2>
       <p>سجّل اهتمامك وأرسل لك تفاصيل التجربة المبكرة على إيميلك، أو افتح الكود وشوف البنية بنفسك.</p>
       <div class="actions">
         <a class="btn btn-primary" href="mailto:noursteem020@gmail.com?subject=%D8%A7%D9%87%D8%AA%D9%85%D8%A7%D9%85%20%D8%A8%D9%80%20Sendz">
@@ -314,5 +360,46 @@ h1{font-size:clamp(2.05rem,5.6vw,3.9rem);line-height:1.22}
     <span class="sep">© 2026 <span translate="no">Sendz</span></span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var box=document.querySelector('[data-console]');
+  if(!box) return;
+  var reduce=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)').matches:false;
+  if(reduce){box.setAttribute('data-static','');return}
+  var items=Array.prototype.map.call(box.querySelectorAll('[data-type]'),function(el){
+    return {el:el,text:el.textContent,caret:el.parentNode.querySelector('.caret'),row:el.parentNode};
+  });
+  var i=0,j=0,timer=null;
+  function step(){
+    if(i>=items.length){timer=setTimeout(reset,4600);return}
+    var it=items[i];
+    if(it.caret) it.caret.hidden=false;
+    if(j<=it.text.length){
+      it.el.textContent=it.text.slice(0,j);
+      j++;
+      timer=setTimeout(step,22+(j%4)*9);
+      return;
+    }
+    if(it.caret) it.caret.hidden=true;
+    if(it.row) it.row.classList.add('done');
+    i++;j=0;
+    timer=setTimeout(step,400);
+  }
+  function reset(){
+    items.forEach(function(it){
+      it.el.textContent='';
+      if(it.row) it.row.classList.remove('done');
+      if(it.caret) it.caret.hidden=true;
+    });
+    i=0;j=0;timer=setTimeout(step,560);
+  }
+  reset();
+  document.addEventListener('visibilitychange',function(){
+    clearTimeout(timer);
+    if(!document.hidden) timer=setTimeout(step,320);
+  });
+})();
+</script>
 </body>
 </html>
